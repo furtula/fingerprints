@@ -1,3 +1,7 @@
+'''
+This script calculates descriptive statistics for the molecular fingerprint, proposed in the paper ***Topological indices in assessing molecular similarity***. Additionaly, it provides the same statistical parameters for the Morgan circular fingerprint as well.
+'''
+
 import json
 import click
 from statistics import mean, stdev
@@ -5,6 +9,18 @@ from progressbar import progressbar
 
 
 def tanimoto(first_fp, second_fp):
+    '''Calculates the Tanimoto similarity coeficient between the fingerprints
+    of the **first** and **second** molecule.
+
+    Parameters
+    ----------
+    first_fp : str
+    second_fp : str
+
+    Returns
+    -------
+    tanimoto_coeff : float
+    '''
     a = first_fp.count('1')
     b = second_fp.count('1')
     c = 0
